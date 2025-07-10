@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
+const MotionDiv = motion<HTMLDivElement>("div");
+
 
 const navItems = [
     { name: "Home", href: "/" },
@@ -13,12 +15,11 @@ export default function Layout({ children }) {
     return (
         <div className="relative min-h-screen bg-black text-white font-sans overflow-hidden">
             {/* Animated Background */}
-            <motion.div
+            <MotionDiv
                 className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-60 animate-pulse z-0"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.6 }}
                 transition={{ duration: 2 }}
-                {...({} as React.HTMLAttributes<HTMLDivElement>)}
             />
 
             {/* Header */}
