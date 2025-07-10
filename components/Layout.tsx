@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-const MotionDiv = motion<HTMLDivElement>("div");
+import type { ReactNode } from "react";
+import type { HTMLMotionProps } from "framer-motion";
 
+type MotionDivProps = HTMLMotionProps<"div">;
+
+const MotionDiv = (props: MotionDivProps): JSX.Element => motion.div(props);
 
 const navItems = [
     { name: "Home", href: "/" },
@@ -11,15 +15,17 @@ const navItems = [
     { name: "FAQ", href: "/faq" },
 ];
 
-export default function Layout({ children }) {
+export default function Layout({ children }: { children: ReactNode }) {
     return (
         <div className="relative min-h-screen bg-black text-white font-sans overflow-hidden">
-            {/* Animated Background */}
             <MotionDiv
-                className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-60 animate-pulse z-0"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.6 }}
-                transition={{ duration: 2 }}
+                {...{
+                    className:
+                        "absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-60 animate-pulse z-0",
+                    initial: { opacity: 0 },
+                    animate: { opacity: 0.6 },
+                    transition: { duration: 2 },
+                }}
             />
 
             {/* Header */}
@@ -40,13 +46,12 @@ export default function Layout({ children }) {
                 </nav>
             </header>
 
-            {/* Content */}
             <main className="relative z-10 pt-12 px-4">{children}</main>
 
-            {/* Footer */}
             <footer className="relative z-10 text-center py-10 text-gray-500 text-sm">
                 &copy; {new Date().getFullYear()} Ayethr. All rights reserved.
             </footer>
         </div>
     );
 }
+
