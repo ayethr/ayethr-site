@@ -11,13 +11,13 @@ const navItems = [
 
 export default function Layout({ children }) {
   return (
-    <div className="relative min-h-screen bg-black text-white font-sans overflow-hidden">
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-60 animate-pulse z-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
-        transition={{ duration: 2 }}
-      />
+     <div className="relative min-h-screen bg-black text-white font-sans overflow-hidden">
+         <motion.div
+             className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-60 animate-pulse z-0"
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 0.6 }}
+             transition={{ duration: 2 }}
+            />
       <header className="relative z-10 p-6 flex justify-between items-center max-w-7xl mx-auto">
         <Link href="/" className="text-xl font-bold tracking-tight">Ayethr</Link>
         <nav className="flex gap-6 text-sm">
