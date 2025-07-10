@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import type { HTMLMotionProps } from "framer-motion";
 
+const MotionDiv = (props: MotionDivProps): React.ReactElement | null => (motion.div(props));
 type MotionDivProps = HTMLMotionProps<"div">;
 
-const MotionDiv = (props: MotionDivProps): JSX.Element => motion.div(props);
 
 const navItems = [
     { name: "Home", href: "/" },
