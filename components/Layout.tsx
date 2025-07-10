@@ -1,11 +1,5 @@
 import Link from "next/link";
-import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import type { HTMLMotionProps } from "framer-motion";
-
-const MotionDiv = (props: MotionDivProps): React.ReactElement | null => (motion.div(props));
-type MotionDivProps = HTMLMotionProps<"div">;
-
 
 const navItems = [
     { name: "Home", href: "/" },
@@ -18,17 +12,9 @@ const navItems = [
 export default function Layout({ children }: { children: ReactNode }) {
     return (
         <div className="relative min-h-screen bg-black text-white font-sans overflow-hidden">
-            <MotionDiv
-                {...{
-                    className:
-                        "absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-60 animate-pulse z-0",
-                    initial: { opacity: 0 },
-                    animate: { opacity: 0.6 },
-                    transition: { duration: 2 },
-                }}
-            />
+            {/* Background (static, no animation) */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-60 z-0" />
 
-            {/* Header */}
             <header className="relative z-10 p-6 flex justify-between items-center max-w-7xl mx-auto">
                 <Link href="/" className="text-xl font-bold tracking-tight">
                     Ayethr
@@ -54,4 +40,3 @@ export default function Layout({ children }: { children: ReactNode }) {
         </div>
     );
 }
-
